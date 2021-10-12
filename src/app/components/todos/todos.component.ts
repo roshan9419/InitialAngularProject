@@ -36,4 +36,10 @@ export class TodosComponent implements OnInit {
     // alert("Added");
   }
 
+  markTodoStatus(todo: Todo) {
+    const idx = this.todoList.indexOf(todo);
+    this.todoList[idx].active = !this.todoList[idx].active;
+    localStorage.setItem("todos", JSON.stringify(this.todoList));
+  }
+
 }

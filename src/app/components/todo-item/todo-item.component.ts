@@ -8,7 +8,9 @@ import { Todo } from 'src/app/models/Todo';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo!: Todo
+  @Input() index!: number
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+  @Output() todoCheckBox: EventEmitter<Todo> = new EventEmitter();
 
   constructor() { }
 
@@ -18,6 +20,10 @@ export class TodoItemComponent implements OnInit {
   onDelete(todo: Todo) {
     this.todoDelete.emit(todo);
     // alert(`Successfuly deleted ${todo.title}`);
+  }
+
+  onCheckBox(todo: Todo) {
+    this.todoCheckBox.emit(todo);
   }
 
 }
